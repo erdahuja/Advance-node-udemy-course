@@ -11,6 +11,7 @@ module.exports = (user) => {
   const session = Buffer.from(JSON.stringify(sessionObject)).toString(
     "base64"
   );
+  
   const keygrip = new KG([keys.cookieKey]);
   const sig = keygrip.sign("session=" + session);
   return {
